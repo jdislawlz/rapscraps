@@ -2,10 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/******************************
+*	Variables
+*******************************/
 $red: #d91a2a;
 $white: #f8fafa;
 $black: #232323;
 
+/******************************
+*	General
+*******************************/
+.img-wrap img{
+	margin:0 auto;
+	display: block;
+	max-width:100%
+}
+
+/******************************
+*	Header
+*******************************/
+header{
+	background-color: #333;
+}
+
+/******************************
+*	Footer
+*******************************/
 footer {
 	background-color: $red;
 }
