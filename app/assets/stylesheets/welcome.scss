@@ -2,10 +2,63 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "bootstrap";
+@import "font-awesome";
+
+/******************************
+*	Variables
+*******************************/
 $red: #d91a2a;
 $white: #f8fafa;
 $black: #232323;
+$red-hover: #c90a1a;
 
+/******************************
+*	General
+*******************************/
+.row{
+	padding:25px 0;
+}
+.img-wrap img{
+	margin:0 auto;
+	display: block;
+	max-width:100%
+}
+
+/******************************
+*	Header
+*******************************/
+header{
+	background-color: #333;
+	color: $red;
+}
+header .row{
+	padding:10px 0;
+}
+header nav{
+	font-size: 1.618rem;
+	text-align: right;
+}
+a.info-trigger{
+	color: $red;
+	border:4px solid $red;
+	border-radius:100%;
+	width:50px;
+	height:50px;
+	display:inline-block;
+	text-align:center;
+}
+a.info-trigger i{
+	line-height:1.7em;
+}
+a.info-trigger:hover{
+	color: $red-hover;
+	border-color: $red-hover;
+}
+
+/******************************
+*	Footer
+*******************************/
 footer {
 	background-color: $red;
 }
