@@ -1,3 +1,11 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$red: #d91a2a;
+$white: #f8fafa;
+$black: #232323;
+
+footer {
+	background-color: $red;
+}
