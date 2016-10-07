@@ -14,11 +14,29 @@
 </header>
 <main>
 	<div class="container">
-		<div class="row">
-			<h1>Rap Scraps</h1>
+		<div class="row flex-items-md-middle flex-items-md-between">
+			<div class="flex-md scraps-date">
+				<%= DateTime.parse(@tweets.last.created_at.to_s).strftime('%m.%d.%y') %>
+			</div>
+			<div class="flex-md row flex-items-md-middle scraps-navigation">
+				<div class="flex-md"><i class="fa fa-chevron-circle-left"></i></div>
+				<div class="flex-md current-scrap"><span>1</span> / <span><%= @tweets.length %></span></div>
+				<div class="flex-md"><i class="fa fa-chevron-circle-right"></i></div>
+			</div>
+		</div>
+		<div class="row flex-items-md-middle flex-items-md-between">
+			<ul class="scraps-social">
+				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+				<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+			</ul>
+		</div>
+		<div class="row scraps-instructions">
+			<p>Use the controls above to view more.</p>
+		</div>
 			<ul>
 			<% @tweets.each do |tweet| %>
-				<li><%= tweet.full_text %></li>
+				<li><%= tweet.full_text %>, <%= DateTime.parse(tweet.created_at.to_s).strftime('%m.%d.%y') %></li>
 			<% end %>
 			</ul>
 		</div>
