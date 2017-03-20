@@ -4,20 +4,34 @@
 
 @import "bootstrap";
 @import "font-awesome";
+@import 'slick';
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 /******************************
 *	Variables
 *******************************/
 $red: #d91a2a;
+$dark-red: #59262A;
 $white: #f8fafa;
 $black: #232323;
 $gray: #c1c1c1;
-$red-hover: #c90a1a;
 $white-hover: #d8dada;
+$fonts: 'Montserrat', helvetica, arial, sans-serif;
 
 /******************************
 *	General
 *******************************/
+html,body{
+	height:100%;
+}
+.total-wrapper{
+	position: relative;
+	min-height: 100%;
+}
+main{
+	font-family: $fonts;
+	padding-bottom: 75px;
+}
 .row{
 	padding:25px 0;
 }
@@ -30,7 +44,7 @@ i{
 	color: $red;
 }
 i:hover{
-	color:$red-hover;
+	color:$dark-red;
 }
 
 /******************************
@@ -46,6 +60,9 @@ header{
 		font-size: 1.618rem;
 		text-align: right;
 	}
+	.logo{
+		width:175px;
+	}
 }
 a.info-trigger{
 	color: $red;
@@ -60,8 +77,8 @@ a.info-trigger i{
 	line-height:1.7em;
 }
 a.info-trigger:hover{
-	color: $red-hover;
-	border-color: $red-hover;
+	color: $dark-red;
+	border-color: $dark-red;
 }
 
 /******************************
@@ -70,13 +87,18 @@ a.info-trigger:hover{
 footer {
 	background-color: $red;
 	color: $white;
-	
+	position: absolute;
+	height:75px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
 	p{
 		margin:0;
 	}
 	a{
-		color: $white;
-		text-decoration: underline;
+		color: $dark-red;
+		text-decoration: none;
 	}
 	a:hover{
 		color: $white-hover;
@@ -84,10 +106,20 @@ footer {
 }
 
 /******************************
-*	Scrap
+*	Scraps
 *******************************/
 .scraps-date{
 	color:$gray;
+}
+.scraps-list{
+	list-style: none;
+}
+.scraps-single{
+	font-size: 3.14rem;
+	line-height:1.4em;
+	.tweet-date{
+		display: none;
+	}
 }
 .scraps-navigation{
 
@@ -101,7 +133,7 @@ footer {
 		font-size:1.5em;
 	}
 	i:hover{
-		color:$red-hover;
+		color:$dark-red;
 	}
 }
 .scraps-social{
@@ -122,7 +154,3 @@ footer {
 		color:$red;
 	}
 }
-
-
-
-

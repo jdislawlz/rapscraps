@@ -1,51 +1,61 @@
-<header>
-	<div class="container">
-		<div class="row flex-items-md-middle">
-			<div class="col-sm-10 offet-sm-1 col-md-3">
-				<div class="img-wrap">
-					<img src="<%= asset_path('rs-logo.png') %>" alt="Rap Scraps Logo">
+<div class="total-wrapper">
+	<header>
+		<div class="container">
+			<div class="row flex-items-md-middle">
+				<div class="col-sm-10 offet-sm-1 col-md-3">
+					<div class="img-wrap logo">
+						<img src="<%= asset_path('rs-logo.png') %>" alt="Rap Scraps Logo">
+					</div>
+				</div>
+				<nav class="col-sm-1 col-md-9">
+					<a href="#" class="info-trigger"><i class="fa fa-info"></i></a>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="container">
+			<div class="row flex-items-md-middle flex-items-md-between">
+				<div class="flex-md scraps-date">
+					<%= DateTime.parse(@tweets.first.created_at.to_s).strftime('%m.%d.%y') %>
+				</div>
+				<div class="flex-md row flex-items-md-middle scraps-navigation">
+					<!-- Arrows injected from slider.js -->
+					<div class="flex-md current-scrap"><span class="current-scrap-number" >1</span> / <span><%= @tweets.length %></span></div>
+					<!-- Arrows injected from slider.js -->
 				</div>
 			</div>
-			<nav class="col-sm-1 col-md-9">
-				<a href="#" class="info-trigger"><i class="fa fa-info"></i></a>
-			</nav>
-		</div>
-	</div>
-</header>
-<main>
-	<div class="container">
-		<div class="row flex-items-md-middle flex-items-md-between">
-			<div class="flex-md scraps-date">
-				<%= DateTime.parse(@tweets.last.created_at.to_s).strftime('%m.%d.%y') %>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="scraps-list">
+						<% @tweets.each do |tweet| %>
+								<div class="scraps-single">
+									<%= tweet.full_text %>
+									<span class="tweet-date">
+										<%= DateTime.parse(tweet.created_at.to_s).strftime('%m.%d.%y') %>
+									</span>
+								</div>
+						<% end %>
+					</div>
+				</div>
 			</div>
-			<div class="flex-md row flex-items-md-middle scraps-navigation">
-				<div class="flex-md"><i class="fa fa-chevron-circle-left"></i></div>
-				<div class="flex-md current-scrap"><span>1</span> / <span><%= @tweets.length %></span></div>
-				<div class="flex-md"><i class="fa fa-chevron-circle-right"></i></div>
+			<div class="row flex-items-md-middle flex-items-md-between">
+				<ul class="scraps-social">
+					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+					<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+				</ul>
+			</div>
+			<div class="row scraps-instructions">
+				<p>Use the controls above to view more.</p>
 			</div>
 		</div>
-		<div class="row flex-items-md-middle flex-items-md-between">
-			<ul class="scraps-social">
-				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-				<li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-			</ul>
+	</main>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<p><a href="#">Jose De La Vega</a> and <a href="#">Josh Delgado</a></p>
+			</div>
 		</div>
-		<div class="row scraps-instructions">
-			<p>Use the controls above to view more.</p>
-		</div>
-			<ul>
-			<% @tweets.each do |tweet| %>
-				<li><%= tweet.full_text %>, <%= DateTime.parse(tweet.created_at.to_s).strftime('%m.%d.%y') %></li>
-			<% end %>
-			</ul>
-		</div>
-	</div>
-</main>
-<footer>
-	<div class="container">
-		<div class="row">
-			<p><strong>Rap Scraps</strong> created by <a href="#">Jose De La Vega</a> and <a href="#">Josh Delgado</a></p>
-		</div>
-	</div>
-</footer>
+	</footer>
+</div>
