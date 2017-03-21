@@ -17,22 +17,22 @@
 		<div class="container">
 			<div class="row flex-items-md-middle flex-items-md-between">
 				<div class="flex-md scraps-date">
-					<%= DateTime.parse(@tweets.first.created_at.to_s).strftime('%m.%d.%y') %>
+					<%= @scraps[0][1] %>
 				</div>
 				<div class="flex-md row flex-items-md-middle scraps-navigation">
 					<!-- Arrows injected from slider.js -->
-					<div class="flex-md current-scrap"><span class="current-scrap-number" >1</span> / <span><%= @tweets.length %></span></div>
+					<div class="flex-md current-scrap"><span class="current-scrap-number" >1</span> / <span><%= @scraps.length %></span></div>
 					<!-- Arrows injected from slider.js -->
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="scraps-list">
-						<% @tweets.each do |tweet| %>
+						<% @scraps.each do |scrap| %>
 								<div class="scraps-single">
-									<%= tweet.full_text %>
+									<%= scrap[0] %>
 									<span class="tweet-date">
-										<%= DateTime.parse(tweet.created_at.to_s).strftime('%m.%d.%y') %>
+										<%= scrap[1] %>
 									</span>
 								</div>
 						<% end %>
